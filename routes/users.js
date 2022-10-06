@@ -86,8 +86,6 @@ router.post('/registerUser',  (req, res) =>{
             }
         })
     }
-
-
 })
 
 router.post('/login' , (req, res, next) =>{
@@ -101,7 +99,7 @@ router.post('/login' , (req, res, next) =>{
 router.get('/logout', (req, res) =>{
     req.logout(); //Passport method, easily logs out user.
     req.flash('success_msg', 'You are logged out');
-    res.redirect('users/login');
+    res.render('index.ejs');
 })
 
 module.exports = router;
