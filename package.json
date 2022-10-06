@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L app.js",
-    "test-login": "npx cypress run --env allure=true"
+    "cy:report": "npm run cleanup && npm run cy_dashboard && npm run merge_reports && npm run mochawesome_report"
   },
   "repository": {
     "type": "git",
