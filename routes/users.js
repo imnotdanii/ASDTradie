@@ -13,16 +13,24 @@ router.get('/registerUser', (req, res)=> {
     res.render('registerUser.ejs')
 })
 
+router.get('/tradieDashboard', (req, res)=> {
+    res.render('tradieDashboard.ejs', {
+        user: req.user
+    });
+})
+
+router.get('/customerDashboard', (req, res)=> {
+    res.render('customerDashboard.ejs', {
+        user: req.user
+    });
+})
+
 //Checks if app should render tradiedashboard or customerdashboard
 router.get('/redirectLogin', (req, res)=> {
     if(req.user.profileType == 'T'){
-        res.render('tradieDashboard.ejs', {
-            user: req.user
-        });
+        res.redirect('/users/tradieDashboard')
     } else{
-        res.render('customerDashboard.ejs', {
-            user: req.user
-        })
+        res.redirect('/users/customerDashboard')
     }
 })
 
