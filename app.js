@@ -50,11 +50,16 @@ let indexRouter = require('./routes/index.js');
 let reviewRouter = require('./routes/review-routes.js');
 let searchRouter = require('./routes/search-routes.js');
 let searchRequestRouter = require('./routes/searchRequest-routes.js');
-
+let searchRequestCDRouter = require('./routes/searchRequestCD-routes.js');
+let searchReviewRouter = require('./routes/searchReview-routes.js');
+let filterRouter = require('./routes/filter-routes.js');
+let reviewsDPRouter = require('./routes/reviewsDP-routes.js');
+let commentsRouter = require('./routes/comments-routes.js');
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;
     let service = await Service.findOne({id: id});
     res.render('serviceDP' , {
+        id : service.id,
         serviceTitle: service.serviceTitle,
         description: service.description,
         longDescription: service.longDescription,
@@ -86,4 +91,9 @@ app.use('/customerDashboard', customerDashboardRouter);
 app.use('/reviews', reviewRouter);
 app.use('/search', searchRouter);
 app.use('/searchRequest', searchRequestRouter);
+app.use('/searchRequestCD', searchRequestCDRouter);
+app.use('/searchReview', searchReviewRouter);
+app.use('/filter', filterRouter);
+app.use('/reviewsDP', reviewsDPRouter);
+app.use('/comments', commentsRouter);
 app.listen('3000', () => console.log('listening at 3000'));

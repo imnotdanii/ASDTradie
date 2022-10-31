@@ -9,17 +9,16 @@ searchServiceRequest.addEventListener('click',async function(){
     let searchRequestQuery = searchRequestHTML.value;
     console.log(searchRequestQuery);
     // sending the get request to get the service request that have the query in their title or description
-    let serviceRequest = await fetch(`http://localhost:3000/searchRequest?searchRequestQuery=${searchRequestQuery}`)
-    .then((response) => response.json()) // getting the response from the server
-    .then((data) => data); // getting the data from the response
-
+    let serviceRequest = await fetch(`http://localhost:3000/searchRequestCD?searchRequestQuery=${searchRequestQuery}`)
+    .then((response) => response.json())
+    .then((data) => data);
     // getting the HTML element to display the service request
-    let serviceRequestList = document.querySelector('.serviceRequestList'); 
+    let serviceRequestList = document.querySelector('.serviceRequestList');
     serviceRequestList.innerHTML = '';
     let i = 1;
     console.log('service request arre  ' + serviceRequest);
+    // displaying the service request
     serviceRequest.forEach((request) =>{
-        // displaying the service request
         let serviceRequestListHTML = `
         <tr>
         <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>

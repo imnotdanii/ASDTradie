@@ -20,7 +20,7 @@
           </div>
           <div class="my-2 my-lg-0 navbar-nav">
             <a href="http://localhost:3000/tradieDashboard.html" class="text-white nav-item nav-link active">My Dashboard</a>
-            <a href="http://localhost:3000/userTSettings.html" class="text-white nav-item nav-link">Account Settings</a>
+            <a href="/users/settings" class="text-white nav-item nav-link">Account Settings</a>
             <a href="/users/logout" class="text-white nav-item nav-link">Logout</a>
           </div>
         </div>
@@ -38,7 +38,7 @@
          <button class="nav-link" id="v-pills-updateService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updateService" type="button" role="tab" aria-controls="v-pills-updateService" aria-selected="false">Update Service</button>
          <button class="nav-link" id="v-pills-addService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addService" type="button" role="tab" aria-controls="v-pills-addService" aria-selected="false">Add Service</button>
          <button class="nav-link" id="v-pills-approveService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-approveService" type="button" role="tab" aria-controls="v-pills-approveService" aria-selected="false">Approve Service</button>
-
+         <button class="nav-link" id="v-pills-comments-tab" data-bs-toggle="pill" data-bs-target="#v-pills-comments" type="button" role="tab" aria-controls="v-pills-comments" aria-selected="false">Comments</button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab"> 
@@ -86,6 +86,16 @@
                 </button>
               </div>
            </div>
+           </div>
+           <div class="row filter ">
+            <div class="col-4">Filter By Status:</div>
+            <!-- <div class="col-3"></div> -->
+            <div class="col-4">
+              <button  class="btn btn-dark approvedFilterBtn">Approved</button>
+            </div>
+            <div class="col-4">
+              <button  class="btn btn-dark rejectedFilterBtn">Rejected</button>
+            </div>
            </div>
              <table class="table table-bordered mt-2 ">
               <thead>
@@ -248,6 +258,25 @@
                   </form>
               </div>
             </div>
+            <div class="tab-pane fade" id="v-pills-comments" role="tabpanel" aria-labelledby="v-pills-comments-tab"> 
+              <div class="container commentsList">
+                <table class="table table-bordered mt-2 commentsList">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                   
+                      <th scope="col">Comment ID</th>
+                      <th scope="col">Comment Name</th>
+                      <th scope="col">Comment</th>
+                   
+                    </tr>
+                  </thead>
+                  <tbody >
+               
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
           </div>
 
@@ -269,6 +298,8 @@
     <script src="./js/showReviews.js"></script>
     <script src="./js/searchService.js"></script>
     <script src="./js/searchServiceRequest.js"></script>
+    <script src="./js/filterServiceRequest.js"></script>
+    <script src="./js/showComments.js"></script>
 </body>
 
 </html>
